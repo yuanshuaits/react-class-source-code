@@ -227,6 +227,7 @@ export function createElement(type, config, children) {
       }
     }
   }
+  // 如果reactNode的type为FC, dev环境通过访问器抛错，prod环境返回undefined ✨✨
   if (__DEV__) {
     if (key || ref) {
       const displayName =
