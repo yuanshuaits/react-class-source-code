@@ -471,6 +471,8 @@ function legacyCreateRootFromDOMContainer(
   if (!shouldHydrate) {
     let warned = false;
     let rootSibling;
+
+    // 删除container下面的子节点✨✨
     while ((rootSibling = container.lastChild)) {
       if (__DEV__) {
         if (
@@ -528,6 +530,7 @@ function legacyRenderSubtreeIntoContainer(
   let root: Root = (container._reactRootContainer: any);
   if (!root) {
     // Initial mount
+    // 创建
     root = container._reactRootContainer = legacyCreateRootFromDOMContainer(
       container,
       forceHydrate,

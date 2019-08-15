@@ -129,7 +129,7 @@ function scheduleRootUpdate(
       );
     }
   }
-
+  // 标记react应用需要更新的地点？ ✨✨
   const update = createUpdate(expirationTime);
   // Caution: React DevTools currently depends on this property
   // being called "element".
@@ -146,7 +146,7 @@ function scheduleRootUpdate(
     update.callback = callback;
   }
   enqueueUpdate(current, update);
-
+  // 开始react更新调度 ✨✨
   scheduleWork(current, expirationTime);
   return expirationTime;
 }
@@ -173,6 +173,7 @@ export function updateContainerAtExpirationTime(
     }
   }
 
+  // root节点， parentComponent 和 context为空✨✨
   const context = getContextForSubtree(parentComponent);
   if (container.context === null) {
     container.context = context;
@@ -280,6 +281,7 @@ export function updateContainer(
 ): ExpirationTime {
   const current = container.current;
   const currentTime = requestCurrentTime();
+  // concurrent mode ✨✨
   const expirationTime = computeExpirationForFiber(currentTime, current);
   return updateContainerAtExpirationTime(
     element,
