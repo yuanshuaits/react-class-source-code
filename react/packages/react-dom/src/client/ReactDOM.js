@@ -530,7 +530,7 @@ function legacyRenderSubtreeIntoContainer(
   let root: Root = (container._reactRootContainer: any);
   if (!root) {
     // Initial mount
-    // 创建
+    // 创建根容器, e.g <div id="root"></div> ✨✨
     root = container._reactRootContainer = legacyCreateRootFromDOMContainer(
       container,
       forceHydrate,
@@ -643,6 +643,7 @@ const ReactDOM: Object = {
     container: DOMContainer,
     callback: ?Function,
   ) {
+    // 第一次初始化dom， container为null， hydrate为false ✨✨
     return legacyRenderSubtreeIntoContainer(
       null,
       element,
